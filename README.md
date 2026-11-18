@@ -1,5 +1,13 @@
 # jqe, an engine for Jieqi
 
+> **This repository is a Chinese-language fork of [jqe](https://github.com/devinokeefe/jieqi).**
+> The engine, the referee and the match harness are upstream code, unchanged (MIT, © 2026 Devin O'Keefe).
+> The changes are confined to `engine/tools/play.py` and `engine/tools/play.html` (localisation, board
+> flip, undo, custom positions, identity of face-down pieces), plus a Windows launcher.
+> See [README.zh-CN.md](README.zh-CN.md) for the Chinese documentation and [NOTICE.md](NOTICE.md) for the
+> list of changes and of the third-party components that are **not** included.
+> For the engine itself and its self-play results, read on — the upstream text below is unchanged.
+
 Jieqi (揭棋) is Chinese chess with the pieces face down. The generals start face up on their usual
 points; each side's other fifteen pieces are shuffled and set face down on its fifteen other starting
 points. A face-down piece moves as the piece that normally starts on its point, and it is turned over

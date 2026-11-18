@@ -23,12 +23,12 @@ int g_urnBase = NUM_PIECE_FEATURES;
 namespace {
 
 struct AlignedFree {
-    void operator()(float* p) const { std::free(p); }
+    void operator()(float* p) const { aligned_free(p); }
 };
 using Buf = std::unique_ptr<float[], AlignedFree>;
 Buf alloc(std::size_t n) {
     const std::size_t bytes = ((n * sizeof(float) + 63) / 64) * 64;
-    float* p = static_cast<float*>(std::aligned_alloc(64, bytes ? bytes : 64));
+    float* p = static_cast<float*>(aligned_alloc_impl(64, bytes ? bytes : 64));
     std::memset(p, 0, bytes ? bytes : 64);
     return Buf(p);
 }
@@ -40,7 +40,7 @@ Buf alloc(std::size_t n) {
 constexpr int QA = 127, QF = 254;
 
 struct AlignedFreeI {
-    void operator()(void* p) const { std::free(p); }
+    void operator()(void* p) const { aligned_free(p); }
 };
 template <typename T>
 std::unique_ptr<T[], AlignedFreeI> alloc_t(std::size_t n) {

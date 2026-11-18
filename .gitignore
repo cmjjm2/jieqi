@@ -20,3 +20,12 @@ engine/nets/xpl-xpl1-r5/*
 !engine/nets/xpl-xpl1-r5/last.jqn
 *.nnue
 *.pt
+
+# --- fork additions ---
+build-manual/
+*.exe
+*.dll
+__pycache__/
+*.pyc
+*.spec
+/screenshots/*.tmp
